@@ -15,10 +15,17 @@ namespace EntrTelefonica
 
             // Console.WriteLine(LargestSumConSubarray());
             // FindDuoValue();
-            Console.WriteLine(IsBalanced());
+            // Console.WriteLine(IsBalanced());
+
+            int[] arrayOrdenar = { 10, 3, 7, 3, 8, 9, 1, 5 , 1, 9, 11, 2};
+            Short.QuickShort(arrayOrdenar, 0, arrayOrdenar.Length - 1);
+            for (int i = 0; i < arrayOrdenar.Length; i++)   // Print por pantalla
+            {
+                Console.WriteLine(arrayOrdenar[i]);
+            }
         }
 
-
+        
         public static bool IsBalanced()
         {
             string str = "{[]}()[][][][[{[]}]]"; // Correcto
