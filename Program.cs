@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,16 +17,66 @@ namespace EntrTelefonica
             // Console.WriteLine(LargestSumConSubarray());
             // FindDuoValue();
             // Console.WriteLine(IsBalanced());
-
+            /*
             int[] arrayOrdenar = { 10, 3, 7, 3, 8, 9, 1, 5 , 1, 9, 11, 2};
             Short.QuickShort(arrayOrdenar, 0, arrayOrdenar.Length - 1);
             for (int i = 0; i < arrayOrdenar.Length; i++)   // Print por pantalla
             {
                 Console.WriteLine(arrayOrdenar[i]);
             }
+            */
+
+            // NOK Algoritmo_grafo.FindShortestPath();
+
+            // Console.WriteLine(Factorial(1));
+
+            // Fibonaci(10);
+
+            int[] arr = { 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 14, 17, 19};
+            FindX(arr, 0, arr.Length, 10);
         }
 
-        
+
+      
+
+        public static void FindX(int[] arr, int low, int high, int x)
+        {
+            int indiceMedio = (high + low) / 2;
+            if (arr[indiceMedio] == x)
+            {
+                Console.WriteLine($"El numero {x} se encuentra en la posición {indiceMedio}");
+            }
+            else if (arr[indiceMedio] < x)
+            {
+                FindX(arr, indiceMedio + 1, high, x);
+            }
+            else if (arr[indiceMedio] > x)
+            {
+                FindX(arr, low, indiceMedio - 1, x);
+            }
+
+         }
+
+        public static void Fibonaci(int num)
+        {
+            int nfibonaci = 1;
+            int nfibonaci2 = 0;
+            int temp = 0;
+            for (int i = 0; i < num; i++)
+            {
+                Console.WriteLine(nfibonaci + " ");
+                temp = nfibonaci2;
+                nfibonaci2 = nfibonaci;
+                nfibonaci += temp;
+            }
+            
+        }
+
+        public static int Factorial(int num)
+        {
+            if (num <= 1) return 1;
+            return num * Factorial(num-1);
+        }
         public static bool IsBalanced()
         {
             string str = "{[]}()[][][][[{[]}]]"; // Correcto
